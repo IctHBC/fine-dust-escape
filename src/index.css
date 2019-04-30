@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.search-bar button .fa-span { display: none; }
+.search-bar button span { display: inline-block; }
+.search-bar button.loading .fa-spin { display: inline-block; }
+.search-bar button.loading span { display: none; }
+
+td,th { 
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+svg {
+  height: 150px;
+}
+.map {
+  height: 180px;
+  width: 250px;
+}
