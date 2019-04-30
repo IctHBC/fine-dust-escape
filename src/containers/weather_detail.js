@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import GoogleMap from '../components/google_map';
+
 class WeatherDetail extends Component {
     renderDetail(){
         return(
             <div>
-                {this.props.selected.city.name} selected <br/>
+                <h2>{this.props.selected.city.name}<br/></h2>
                 <br/>
-                aqi : {this.props.selected.aqi}<br/>
-                lat : {this.props.selected.city.geo[0]}<br/>
-                lng : {this.props.selected.city.geo[1]}<br/>
+                aqi : {this.props.selected.aqi}
                 <br/>
                 <br/>
             </div>
         );
     }
+
+    renderMap(){
+        return(
+            <div className='container'>
+                <div className='row'>
+                    <div className='col'>
+                        <GoogleMap lat={this.props.selected.city.geo[0]} lng={this.props.selected.city.geo[1]}/>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+            </div>
+        );
+    }
+
     render(){
         if(!this.props.selected){
             return (
@@ -26,6 +41,7 @@ class WeatherDetail extends Component {
         return (
             <div>
                 {this.renderDetail()}
+                {this.renderMap()}
             </div>
         );
     }

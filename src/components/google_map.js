@@ -6,7 +6,7 @@ class GoogleMap extends Component {
     super(props);
     this.map = React.createRef();
   }
-  componentDidMount() {
+  componentDidUpdate() {
     console.log('google', this.props);
     new google.maps.Map(this.map.current, {
       zoom: 12,
@@ -16,6 +16,17 @@ class GoogleMap extends Component {
       }
     });
   }
+  componentDidMount() {
+    console.log('google', this.props);
+    new google.maps.Map(this.map.current, {
+      zoom: 12,
+      center: {
+        lat: this.props.lat,
+        lng: this.props.lng
+      },
+    });
+  }
+
 
   render() {
     return <div className='map' ref={this.map}></div>;
