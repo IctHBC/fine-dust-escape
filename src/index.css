@@ -27,6 +27,17 @@ svg {
 }
 .map {
   width: 700px;
-  height: 500px;
+  height: 400px;
   margin: 0 auto;
+}
+
+.emoji {
+  width: 130px;
+  height: 130px;
+  margin: 100 auto;
+}
+
+#cityDetail {
+  background-color: powderblue;
+  padding: 20px;
 }

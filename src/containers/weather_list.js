@@ -9,17 +9,17 @@ import { bindActionCreators } from 'redux';
 
 function evaluateAir(aqi){
     if(aqi<=50){
-        return '좋음';
+        return 'Good';
     } else if (aqi<=100){
-        return '보통';
+        return 'Moderate';
     } else if (aqi<=150){
-        return '민감군영향';
+        return 'Little Unhealthy';
     } else if (aqi<=200){
-        return '매우나쁨';
+        return 'Unhealthy';
     } else if (aqi<=300){
-        return '나쁨';
+        return 'Very Unhealthy';
     } else {
-        return '위험';
+        return 'Hazardous';
     }
 }
 
