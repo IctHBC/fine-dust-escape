@@ -40,11 +40,13 @@ function getBgColor(aqi){
 }
 
 class WeatherList extends Component {
-
-    renderWeather({data}){
+   renderWeather({data}){
         return (
             <tr
-                
+                onClick={() => {
+                    console.log("casdas", this);
+                    this.props.selectCity(data)
+                }}
             >
                 <td>{data.city.name}</td>
                 <td>{data.aqi}</td>
@@ -74,7 +76,7 @@ class WeatherList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.weather.map(this.renderWeather)}
+                        {this.props.weather.map(this.renderWeather.bind(this))}
                     </tbody>
                 </table>
             </div>
