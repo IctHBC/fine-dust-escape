@@ -21,3 +21,20 @@ export function selectCity(city){
         payload: city
     };
 }
+
+// weather forecast api 
+
+const ROOT_FORECAST_URL = 'http://api.openweathermap.org/data/2.5/forecast'
+const FORECAST_KEY = '853c909f0f8639d63344ec1b9f73c12a';
+
+export const FETCH_FORECAST = 'FETCH_FORECAST';
+
+export function fetchForecast(value){
+    const forecastUrl = `${ROOT_FORECAST_URL}?q=${value}&appid=${FORECAST_KEY}`;
+    const forecastRequest = axios.get(forecastUrl);
+
+    return {
+        type: FETCH_FORECAST,
+        payload: forecastRequest
+    };
+}

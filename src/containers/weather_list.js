@@ -47,6 +47,7 @@ class WeatherList extends Component {
                     console.log("casdas", this);
                     this.props.selectCity(data)
                 }}
+                key = {data.idx}
             >
                 <td>{data.city.name}</td>
                 <td>{data.aqi}</td>

@@ -41,3 +41,20 @@ svg {
   background-color: powderblue;
   padding: 20px;
 }
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: blanchedalmond;
+  height: 100px;
+  margin-top: 0%;
+}
