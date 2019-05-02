@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { selectCity } from '../actions';
+import { selectCity, fetchForecast } from '../actions';
 import { bindActionCreators } from 'redux';
 
 // import GoogleMap from '../components/google_map';
@@ -41,11 +41,16 @@ function getBgColor(aqi){
 
 class WeatherList extends Component {
    renderWeather({data}){
+       console.log("DATA", data);
         return (
             <tr
                 onClick={() => {
                     console.log("casdas", this);
-                    this.props.selectCity(data)
+                    this.props.selectCity(data);
+                    var cityInUrl = String(data.city.url).substr(23);
+                    // var forecastCity = this.props.fetchForecast(cityInUrl);
+                    // console.log('casdas', forecastCity)
+                    this.props.fetchForecast(cityInUrl);
                 }}
                 key = {data.idx}
             >
@@ -94,7 +99,7 @@ function mapStateToProps(state, {selected}){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({selectCity}, dispatch);
+    return bindActionCreators({selectCity, fetchForecast}, dispatch);
 }
 
 

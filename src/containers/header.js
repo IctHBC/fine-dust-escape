@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Header extends Component {
     render(){
         return (
-            <div className='container-fluid header'>
-                misae misae ㅎㅅㅎ
+            <div className='header'>
+                <h3 className='miseTitle'>mise mise</h3>
             </div>
         );
     }

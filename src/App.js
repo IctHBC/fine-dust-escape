@@ -8,6 +8,9 @@ import SearchBar from './containers/search_bar';
 import WeatherList from './containers/weather_list';
 import WeatherDetail from './containers/weather_detail';
 
+import InfoTable from './containers/info_table';
+import Footer from './containers/footer';
+
 class App extends Component {
   render() {
     return (
@@ -16,6 +19,8 @@ class App extends Component {
         <SearchBar />
         <WeatherDetail />
         <WeatherList />
+        <InfoTable />
+        <Footer/>
       </div>
     );
   }

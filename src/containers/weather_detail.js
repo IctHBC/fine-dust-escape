@@ -99,10 +99,10 @@ class WeatherDetail extends Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <div className='col-4'>
-                        <img src={src} alt='emoji' class='emoji'/>
+                    <div className='col-4 emojiContainer'>
+                        <img src={src} alt='emoji' className='emoji'/>
                     </div>
-                    <div className='col-8'>
+                    <div className='col-8 description'>
                         {name} is {evaluateAir(aqi)} now! <br/> <br/>
                         {implications(aqi)} <br/><br/>
                         want more information : <a href={url}>{url}</a>
@@ -115,13 +115,15 @@ class WeatherDetail extends Component {
     }
 
     renderForecast(){
-        const cityInUrl = String(this.props.selected.city.url).substr(23);
-        const forecastCity = this.props.fetchForecast(cityInUrl);
-        console.log('casdas', forecastCity)
-
+        console.log("FORECAST", this.props.forecast);
+        if (!this.props.forecast || !this.props.forecast.data || !this.props.forecast.data[0] || !this.props.forecast.data[0].list) {
+            return (<div>No info</div>);
+        }
+        var w = this.props.forecast.data[0].list[0]
         return (
             <div>
-                This is weather Forecast
+                {w.weather[0].main} <br/>
+                {w.weather[0].description} <br/>
             </div>
         );
     }
@@ -146,10 +148,10 @@ class WeatherDetail extends Component {
     }
 }
 
-function mapStateToProps({selected}){
+function mapStateToProps({selected, forecast}){
     return {
         selected: selected,
-        forecast: fetchForecast.data,
+        forecast: forecast,
     };
 }
 
