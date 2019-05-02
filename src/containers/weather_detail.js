@@ -81,7 +81,7 @@ class WeatherDetail extends Component {
         return(
             <div className='container'>
                 <div className='row'>
-                    <div className='col'>
+                    <div className='col googleMap'>
                         <GoogleMap lat={this.props.selected.city.geo[0]} lng={this.props.selected.city.geo[1]}/>
                     </div>
                 </div>

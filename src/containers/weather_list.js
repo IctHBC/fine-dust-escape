@@ -48,8 +48,6 @@ class WeatherList extends Component {
                     console.log("casdas", this);
                     this.props.selectCity(data);
                     var cityInUrl = String(data.city.url).substr(23);
-                    // var forecastCity = this.props.fetchForecast(cityInUrl);
-                    // console.log('casdas', forecastCity)
                     this.props.fetchForecast(cityInUrl);
                 }}
                 key = {data.idx}
@@ -64,7 +62,7 @@ class WeatherList extends Component {
         if(this.props.error){
            return (
                 <div className='alert alert-danger' role='alert'>
-                    {this.props.error.message}
+                    {this.props.error}
                 </div>
            );
         }

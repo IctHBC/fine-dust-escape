@@ -12,6 +12,11 @@ export default function(state = {
                 data: [...state.data]
             };
         case `${FETCH_WEATHER}_FULFILLED` :
+            if(action.payload.data.status=='error'){
+                return {
+                    error: 'error'
+                };
+            }
             return {
                 loading: false,
                 error: '',
