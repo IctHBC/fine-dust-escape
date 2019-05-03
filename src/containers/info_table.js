@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
 
 class InfoTable extends Component {
-    render(){
-        return (
-            <div>
-                <br/>
-                <br/>
-                <table className='table'>
+    constructor(props){
+        super(props);
+        this.state = {
+            btnClicked: false
+        };
+    }
+
+    handleClick(){
+        const clicked = this.state.btnClicked;
+        if(!clicked){
+            this.setState({
+                btnClicked: true
+            });
+        } else {
+            this.setState({
+                btnClicked: false
+            })
+        };
+    }
+
+    renderTable(){
+        return(
+            <table className='table'>
                     <thead>
                         <tr>
                             <th>AQI</th>
@@ -47,8 +64,37 @@ class InfoTable extends Component {
                         </tr>
                     </tbody>
                 </table>
-            </div>
         );
+    }
+
+    render(){
+        const myStatus = this.state.btnClicked;
+        console.log('status', myStatus);
+
+        if(myStatus){
+            return (
+                <div>
+                    <button type='button' 
+                        className='btn btn-light'
+                        onClick={() => this.handleClick()}>
+                        want more info
+                    </button>
+                    <br/>
+                    <br/>
+                    {this.renderTable()}
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <button type='button' 
+                        className='btn btn-light'
+                        onClick={() => this.handleClick()}>
+                        want more info
+                    </button>
+                </div>
+            );
+        }
     }
 }
 

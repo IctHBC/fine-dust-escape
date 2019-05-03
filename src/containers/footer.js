@@ -4,7 +4,7 @@ class Footer extends Component {
     render(){
         return (
             <div>
-                This is footer <br/>
+                Copyright eunjizzang <br/>
             </div>
         );
     }

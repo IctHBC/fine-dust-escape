@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import GoogleMap from '../components/google_map';
-
 // import image files 
 import good from '../images/good.png';
 import moderate from '../images/moderate.png';
@@ -11,41 +9,24 @@ import unhealthy from '../images/unhealthy.png';
 import very_unhealthy from '../images/unhealthy.png';
 import hazardous from '../images/hazardous.png';
 
-import { bindActionCreators } from 'redux';
-import { fetchForecast } from '../actions/index'
-
 // select emoji image
 function selectEmoji(aqi){
-    if(aqi<=50){
-        return good;
-    } else if (aqi<=100){
-        return moderate;
-    } else if (aqi<=150){
-        return little_unhealthy;
-    } else if (aqi<=200){
-        return unhealthy;
-    } else if (aqi<=300){
-        return very_unhealthy;
-    } else {
-        return hazardous;
-    }
+    if(aqi<=50){ return good; }
+    else if (aqi<=100){ return moderate; } 
+    else if (aqi<=150){ return little_unhealthy; } 
+    else if (aqi<=200){ return unhealthy; }
+    else if (aqi<=300){ return very_unhealthy; } 
+    else { return hazardous; }
 }
 
 // air description 
 function evaluateAir(aqi){
-    if(aqi<=50){
-        return 'Good';
-    } else if (aqi<=100){
-        return 'Moderate';
-    } else if (aqi<=150){
-        return 'Little Unhealthy';
-    } else if (aqi<=200){
-        return 'Unhealthy';
-    } else if (aqi<=300){
-        return 'Very Unhealthy';
-    } else {
-        return 'Hazardous';
-    }
+    if(aqi<=50){ return 'Good'; } 
+    else if (aqi<=100){ return 'Moderate'; } 
+    else if (aqi<=150){ return 'Little Unhealthy'; } 
+    else if (aqi<=200){ return 'Unhealthy'; } 
+    else if (aqi<=300){ return 'Very Unhealthy'; } 
+    else { return 'Hazardous'; }
 }
 
 // air implications 
@@ -66,64 +47,25 @@ function implications(aqi){
 }
 
 class WeatherDetail extends Component {
-    renderDetail(){
-        return(
-            <div id='cityDetail'>
-                <h2>{this.props.selected.city.name}<br/></h2>
-                recently updated time : {this.props.selected.time.s}
-                <br/>
-                <br/>
-            </div>
-        );
-    }
-
-    renderMap(){
-        return(
-            <div className='container'>
-                <div className='row'>
-                    <div className='col googleMap'>
-                        <GoogleMap lat={this.props.selected.city.geo[0]} lng={this.props.selected.city.geo[1]}/>
-                    </div>
-                </div>
-                <br/>
-                <br/>
-            </div>
-        );
-    }
-
-    renderImgDescription(){
+    renderImg(){
         var aqi = this.props.selected.aqi;
         var src = selectEmoji(aqi);
-        var name = this.props.selected.city.name;
-        var url = this.props.selected.city.url;
         return (
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-4 emojiContainer'>
-                        <img src={src} alt='emoji' className='emoji'/>
-                    </div>
-                    <div className='col-8 description'>
-                        {name} is {evaluateAir(aqi)} now! <br/> <br/>
-                        {implications(aqi)} <br/><br/>
-                        want more information : <a href={url}>{url}</a>
-                    </div>
-                </div>
-                <br/>
-                <br/>
+            <div className='col-4 emojiContainer'>
+                <img src={src} alt='emoji' className='emoji'/>
             </div>
         );
     }
 
-    renderForecast(){
-        console.log("FORECAST", this.props.forecast);
-        if (!this.props.forecast || !this.props.forecast.data || !this.props.forecast.data[0] || !this.props.forecast.data[0].list) {
-            return (<div>No info</div>);
-        }
-        var w = this.props.forecast.data[0].list[0]
+    renderDescription(){
+        var aqi = this.props.selected.aqi;
+        var cityName = this.props.selected.city.name;
+        var url = this.props.selected.city.url;
         return (
-            <div>
-                {w.weather[0].main} <br/>
-                {w.weather[0].description} <br/>
+            <div className='col-8 description'>
+                {cityName} is {evaluateAir(aqi)} now! <br/> <br/>
+                {implications(aqi)} <br/><br/>
+                want more information : <a href={url}>{url}</a>
             </div>
         );
     }
@@ -138,25 +80,24 @@ class WeatherDetail extends Component {
             );
         }
         return (
-            <div>
-                {this.renderForecast()}
-                {this.renderDetail()}
-                {this.renderImgDescription()}
-                {this.renderMap()}
-            </div>
+           <div>
+               <div className='container'>
+                    <div className='row'>
+                        {this.renderImg()}
+                        {this.renderDescription()}
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+           </div>
         );
     }
 }
 
-function mapStateToProps({selected, forecast}){
+function mapStateToProps({selected}){
     return {
         selected: selected,
-        forecast: forecast,
     };
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({ fetchForecast }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherDetail);
+export default connect(mapStateToProps)(WeatherDetail);

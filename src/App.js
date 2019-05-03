@@ -4,9 +4,15 @@ import './App.css';
 
 import Header from './containers/header';
 
+import ProgressBar from './containers/progress_bar';
+import CityBanner from './containers/city_banner';
+
 import SearchBar from './containers/search_bar';
 import WeatherList from './containers/weather_list';
 import WeatherDetail from './containers/weather_detail';
+
+import AqiMap from './containers/aqi_map';
+import ForecastWeather from './containers/forecast_weather';
 
 import InfoTable from './containers/info_table';
 import Footer from './containers/footer';
@@ -17,7 +23,11 @@ class App extends Component {
       <div className='App container mt-3'>
         <Header />
         <SearchBar />
+        <CityBanner />
+        <ProgressBar />
         <WeatherDetail />
+        <AqiMap />
+        <ForecastWeather />
         <WeatherList />
         <InfoTable />
         <Footer/>
