@@ -61,6 +61,7 @@ class WeatherDetail extends Component {
         var aqi = this.props.selected.aqi;
         var cityName = this.props.selected.city.name;
         var url = this.props.selected.city.url;
+
         return (
             <div className='col-8 description'>
                 {cityName} is {evaluateAir(aqi)} now! <br/> <br/>

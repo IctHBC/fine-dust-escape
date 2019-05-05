@@ -6,8 +6,12 @@ class ProgressBar extends Component {
         const aqi = this.props.selected.aqi;
         return (
             <div className='aqivalue'>
-                <span className='aqiTitle'>AQI </span>
-                <progress value={aqi} max='350' className='progress-bar' />
+                <h6>AQI</h6>
+                <div className='bar'>
+                    <span className='aqiIdx'> 0 </span>
+                    <progress value={aqi} max='350' className='progress-bar' />
+                    <span className='aqiIdx'> 350 </span>
+                </div>
             </div>
         );
     }
