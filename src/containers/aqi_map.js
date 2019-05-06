@@ -7,7 +7,7 @@ class AqiMap extends Component {
     renderMap(){
         return (
             <div className='col googleMap'>
-                <GoogleMap lat={this.props.selected.city.geo[0]} lng={this.props.selected.city.geo[1]}/>
+                <GoogleMap className='aqiMap' lat={this.props.selected.city.geo[0]} lng={this.props.selected.city.geo[1]}/>
             </div>
         );
     }

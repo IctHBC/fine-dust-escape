@@ -7,8 +7,8 @@ class CityBanner extends Component {
         var updateTime = this.props.selected.time.s;
         return (
             <div id='cityDetail'>
-                <h2>{cityName}</h2>
-                recently updated time : {updateTime}
+                <h2 className='cityBannerName'>{cityName}</h2>
+                <div className='cityBannerTime'>recently updated time : {updateTime}</div>
             </div>
         );
     }

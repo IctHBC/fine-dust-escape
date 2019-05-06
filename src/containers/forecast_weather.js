@@ -8,18 +8,39 @@ import Chart from '../components/chart';
 
 
 class ForecastWeather extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            btnClicked: false
+        };
+    }
+
+    handleClick(){
+        const clicked = this.state.btnClicked;
+        if(!clicked){
+            this.setState({
+                btnClicked: true
+            });
+        } else {
+            this.setState({
+                btnClicked: false
+            });
+        }
+    }
+
     renderForecast(){
         if (!this.props.forecast || !this.props.forecast.data || !this.props.forecast.data[0] || !this.props.forecast.data[0].list) {
             return (<div><br/></div>);
         }
         var w = this.props.forecast.data[0].list[0]
         var cityName = this.props.selected.city.name;
+        var c = Math.round(this.props.forecast.data[0].list[0].main.temp - 273.15, 1);
         return (
-            <div>
+            <div className='forecast'>
                 <br/>
-                <h4> today's weather in {cityName} </h4>
-                weather main : {w.weather[0].main} <br/>
-                weather description : {w.weather[0].description} <br/>
+                <h4> today's weather in {cityName} : {c} &#x2103; </h4> 
+                It is <span className='info'>{w.weather[0].description}</span> now! <br/>
             </div>
         );
     }
@@ -42,9 +63,9 @@ class ForecastWeather extends Component {
 
         return (
             <div>
-                <Chart data={temps} color='orange' units='&#x2103;'/>
-                <Chart data={pressures} color='green' units='hPa'/>
-                <Chart data={humidities} color='black' units='%'/>
+                <Chart data={temps} color='orange' units='&#x2103;' discript='temperature'/>
+                <Chart data={pressures} color='green' units='hPa' discript='pressures'/>
+                <Chart data={humidities} color='black' units='%' discript='humidities'/>
             </div>
         );
     }
@@ -55,12 +76,36 @@ class ForecastWeather extends Component {
                <div></div>
            );
        }
-       return (
-           <div>
-               {this.renderForecast()}
-               {this.renderChart()}
-           </div>
-       );
+
+       const myStatus = this.state.btnClicked;
+       if(myStatus){
+           return (
+               <div>
+                   {this.renderForecast()}
+                   <br/>
+                   <button type='button' 
+                        className='btn btn-light'
+                        onClick={() => this.handleClick()}>
+                        show weather chart
+                    </button>
+                   {this.renderChart()}
+                   <br/>
+               </div>
+           );
+       } else {
+           return (
+                <div>
+                    {this.renderForecast()}
+                    <br/>
+                    <button type='button' 
+                        className='btn btn-light'
+                        onClick={() => this.handleClick()}>
+                        show weather chart
+                    </button>
+                    <br/>
+                </div>
+           )
+       }
     }
 }
 

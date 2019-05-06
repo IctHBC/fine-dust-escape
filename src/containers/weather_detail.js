@@ -51,7 +51,7 @@ class WeatherDetail extends Component {
         var aqi = this.props.selected.aqi;
         var src = selectEmoji(aqi);
         return (
-            <div className='col-4 emojiContainer'>
+            <div className='col-3 emojiContainer'>
                 <img src={src} alt='emoji' className='emoji'/>
             </div>
         );
@@ -63,10 +63,10 @@ class WeatherDetail extends Component {
         var url = this.props.selected.city.url;
 
         return (
-            <div className='col-8 description'>
-                {cityName} is {evaluateAir(aqi)} now! <br/> <br/>
+            <div className='col-9 description'>
+                {cityName} is <span className='info'>{evaluateAir(aqi)}</span> now! <br/> <br/>
                 {implications(aqi)} <br/><br/>
-                want more information : <a href={url}>{url}</a>
+                want more information <i class="fas fa-angle-double-right"></i> <a href={url}>{url}</a>
             </div>
         );
     }
@@ -74,9 +74,10 @@ class WeatherDetail extends Component {
     render(){
         if(!this.props.selected){
             return (
-                <div>
+                <div className='aqiInfo'>
                     <br/> There is NO city selected now <br/>
-                    Please click city name if you want more information <br/> <br/>
+                    Please click city name if you want more information <br/><br/>
+                    <i class="fas fa-arrow-down fa-lg"/> <i class="fas fa-arrow-down fa-lg"/> <i class="fas fa-arrow-down fa-lg"/> <br/>
                 </div>
             );
         }

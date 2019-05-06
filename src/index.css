@@ -55,13 +55,13 @@ svg {
   padding: 0px;
 }
 
-html,body {
-  height: 100%;
-}
-
 .header {
   height: 70px;
   padding-top: 20px;
+}
+
+h1.misaeTitle {
+  color: #566270;
   font-family: 'Wendy One', sans-serif;
 }
 
@@ -70,4 +70,96 @@ html,body {
   display: inline-block;
   height: 30px;
   color: rgb(95, 95, 97);
+}
+
+.aqiInfo {
+  font-family: 'Kalam', cursive;
+  font-size: 20px;
+  padding-bottom: 30px;
+}
+
+.fa-arrow-down {
+  padding: 20px;
+}
+
+.searchBtn, .form-control {
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+}
+
+.footer{
+  font-family: 'Kalam', cursive;
+  font-size: 20px;
+  padding-top: 50px;
+}
+
+.table {
+  font-family: 'Roboto Slab', serif;
+}
+
+.whiteTable {
+  color: white;
+}
+
+.cityBannerName, .cityBannerTime, h5, .description, .forecast, .btn-light {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.aqiIdx {
+  font-size: 20px;
+  padding-bottom: 100px;
+}
+
+.info {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.chart{
+  width: 100px;
+}
+
+.aqiMap {
+  width: 80%;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes moveUpDown {
+  0%{
+    transform: scale(1)
+  }
+  50%{
+    transform: scale(1.2)
+  }
+  100%{
+    transform: scale(1)
+  }
+}
+
+
+.emojiContainer {
+  animation: bounceIn 2s;
+  animation-iteration-count: infinite;
+}
+
+.fa-arrow-down {
+  animation: moveUpDown 2s;
+  animation-iteration-count: infinite;
 }

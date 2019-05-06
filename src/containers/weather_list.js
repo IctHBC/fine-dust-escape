@@ -41,6 +41,8 @@ function getBgColor(aqi){
 
 class WeatherList extends Component {
    renderWeather({data}){
+       const clsName = (data.aqi) > 150 ? 'whiteTable' : 'blackTable';
+
        console.log("DATA", data);
         return (
             <tr
@@ -54,7 +56,7 @@ class WeatherList extends Component {
             >
                 <td>{data.city.name}</td>
                 <td>{data.aqi}</td>
-                <td bgcolor={getBgColor(data.aqi)}>{evaluateAir(data.aqi)}</td>
+                <td bgcolor={getBgColor(data.aqi)} className={clsName}>{evaluateAir(data.aqi)}</td>
             </tr>
         );
     }

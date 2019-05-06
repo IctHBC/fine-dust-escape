@@ -34,7 +34,7 @@ class SearchBar extends Component {
                     <div className='input-group-append'>
                         <button className={clsName} type='button'>
                             <i className='fa fa-spinner fa-spin' />
-                            <span>Search</span>
+                            <span className='searchBtn'>Search</span>
                         </button>
                     </div>
                 </div>

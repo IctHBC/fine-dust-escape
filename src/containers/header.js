@@ -4,7 +4,7 @@ class Header extends Component {
     render(){
         return (
             <div className='header'>
-                <a href=''><h1 className='miseTitle'>misae misae</h1></a>
+                <a href=''><h1 className='misaeTitle'>misae misae  <i class="fas fa-mouse-pointer fa-sm"></i></h1></a>
             </div>
         );
     }

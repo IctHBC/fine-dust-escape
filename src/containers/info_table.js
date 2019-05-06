@@ -47,17 +47,17 @@ class InfoTable extends Component {
                             <td>Little Unhealthy</td>
                             <td>Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.</td>
                         </tr>
-                        <tr bgcolor='Crimson'>
+                        <tr bgcolor='Crimson' className='whiteTable'>
                             <td>151-200</td>
                             <td>Unhealthy</td>
                             <td>Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion</td>
                         </tr>
-                        <tr bgcolor='DarkMagenta'>
+                        <tr bgcolor='DarkMagenta' className='whiteTable'>
                             <td>201-300</td>
                             <td>Very Unhealthy</td>
                             <td>Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.</td>
                         </tr>
-                        <tr bgcolor='DarkRed'>
+                        <tr bgcolor='DarkRed' className='whiteTable'>
                             <td>300+</td>
                             <td>Hazardous</td>
                             <td>Everyone should avoid all outdoor exertion</td>
