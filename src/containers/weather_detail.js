@@ -66,7 +66,7 @@ class WeatherDetail extends Component {
             <div className='col-9 description'>
                 {cityName} is <span className='info'>{evaluateAir(aqi)}</span> now! <br/> <br/>
                 {implications(aqi)} <br/><br/>
-                want more information <i class="fas fa-angle-double-right"></i> <a href={url}>{url}</a>
+                want more information <i class="fas fa-angle-double-right"></i> <a href={url} target='_blank'>{url}</a>
             </div>
         );
     }

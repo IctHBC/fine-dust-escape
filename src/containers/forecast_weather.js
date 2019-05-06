@@ -40,7 +40,7 @@ class ForecastWeather extends Component {
             <div className='forecast'>
                 <br/>
                 <h4> today's weather in {cityName} : {c} &#x2103; </h4> 
-                It is <span className='info'>{w.weather[0].description}</span> now! <br/>
+                It is &nbsp; <span className='info'> {w.weather[0].description}</span> &nbsp; now! <br/>
             </div>
         );
     }

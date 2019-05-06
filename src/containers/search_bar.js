@@ -21,8 +21,7 @@ class SearchBar extends Component {
     }
 
     render(){
-        const clsName = (this.props.loading) ? 
-            'btn btn-primary loading' : 'btn btn-primary';
+        
         return (
             <form className='search-bar' onSubmit={event => this.onSubmit(event)}>
                 <div className='input-group mb-3'>
@@ -32,7 +31,7 @@ class SearchBar extends Component {
                         value={this.state.term}
                     />
                     <div className='input-group-append'>
-                        <button className={clsName} type='button'>
+                        <button className='btn btn-primary' type='button'>
                             <i className='fa fa-spinner fa-spin' />
                             <span className='searchBtn'>Search</span>
                         </button>

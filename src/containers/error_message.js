@@ -12,11 +12,11 @@ class ErrorMessage extends Component{
                     {this.props.error}
                     Make sure enter the right city <br/>
                 </div>
-            )
+            );
         } 
         return (
             <div></div>
-        )
+        );
     }
     
     render(){
