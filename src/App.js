@@ -8,6 +8,8 @@ import ProgressBar from './containers/progress_bar';
 import CityBanner from './containers/city_banner';
 
 import SearchBar from './containers/search_bar';
+
+import ErrorMessage from './containers/error_message';
 import WeatherList from './containers/weather_list';
 import WeatherDetail from './containers/weather_detail';
 
@@ -23,6 +25,7 @@ class App extends Component {
       <div className='App container mt-3'>
         <Header />
         <SearchBar />
+        <ErrorMessage />
         <CityBanner />
         <ProgressBar />
         <WeatherDetail />

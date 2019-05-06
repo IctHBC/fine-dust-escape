@@ -8,42 +8,27 @@ import { bindActionCreators } from 'redux';
 // import Chart from '../components/chart';
 
 function evaluateAir(aqi){
-    if(aqi<=50){
-        return 'Good';
-    } else if (aqi<=100){
-        return 'Moderate';
-    } else if (aqi<=150){
-        return 'Little Unhealthy';
-    } else if (aqi<=200){
-        return 'Unhealthy';
-    } else if (aqi<=300){
-        return 'Very Unhealthy';
-    } else {
-        return 'Hazardous';
-    }
+    if(aqi<=50){ return 'Good';} 
+    else if (aqi<=100){ return 'Moderate'; } 
+    else if (aqi<=150){ return 'Little Unhealthy'; } 
+    else if (aqi<=200){ return 'Unhealthy';} 
+    else if (aqi<=300){ return 'Very Unhealthy';} 
+    else { return 'Hazardous'; }
 }
 
 function getBgColor(aqi){
-    if(aqi<=50){
-        return 'LightGreen';
-    } else if (aqi<=100){
-        return 'Gold';
-    } else if (aqi<=150){
-        return 'Coral';
-    } else if (aqi<=200){
-        return 'Crimson';
-    } else if (aqi<=300){
-        return 'DarkMagenta';
-    } else {
-        return 'DarkRed';
-    }
+    if(aqi<=50){ return 'LightGreen';} 
+    else if (aqi<=100){ return 'Gold';} 
+    else if (aqi<=150){ return 'Coral';} 
+    else if (aqi<=200){ return 'Crimson';} 
+    else if (aqi<=300){ return 'DarkMagenta';} 
+    else { return 'DarkRed';}
 }
 
 class WeatherList extends Component {
    renderWeather({data}){
-       const clsName = (data.aqi) > 150 ? 'whiteTable' : 'blackTable';
-
-       console.log("DATA", data);
+        console.log("DATA", data);
+        const clsName = (data.aqi) > 150 ? 'whiteTable' : 'blackTable';
         return (
             <tr
                 onClick={() => {
@@ -60,19 +45,24 @@ class WeatherList extends Component {
             </tr>
         );
     }
-    handleError(){
-        if(this.props.error){
-           return (
-                <div className='alert alert-danger' role='alert'>
-                    {this.props.error}
-                </div>
-           );
-        }
+
+    // clear table 
+    handleClick(){ 
+        window.location.reload();
+        console.log('RemovedWeatherData', this.props.weather);
     }
+
     render(){
+        console.log('weatherData', this.props.weather);
         return (
             <div className='weather-list'>
-                {this.handleError()}
+                if you want to clear table, click this &nbsp; <i class="fas fa-angle-double-right"></i> &nbsp; &nbsp;
+                <button type='button' 
+                    className='btn btn-light'
+                    onClick={() => this.handleClick()}>
+                    clear table
+                </button>
+                <br/><br/>
                 <table className='table table-hover'>
                     <thead>
                         <tr>
@@ -85,6 +75,8 @@ class WeatherList extends Component {
                         {this.props.weather.map(this.renderWeather.bind(this))}
                     </tbody>
                 </table>
+                <br/>
+                <br/>
             </div>
         );
     }
