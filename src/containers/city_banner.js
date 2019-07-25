@@ -8,7 +8,7 @@ class CityBanner extends Component {
         return (
             <div id='cityDetail'>
                 <h2 className='cityBannerName'>{cityName}</h2>
-                <div className='cityBannerTime'>recently updated time : {updateTime}</div>
+                <div className='cityBannerTime'>최근 데이터가 갱신된 시간 : {updateTime}</div>
             </div>
         );
     }

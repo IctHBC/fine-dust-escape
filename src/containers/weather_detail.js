@@ -2,47 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // import image files 
-import good from '../images/good.png';
-import moderate from '../images/moderate.png';
-import little_unhealthy from '../images/little_unhealthy.png';
-import unhealthy from '../images/unhealthy.png';
-import very_unhealthy from '../images/unhealthy.png';
-import hazardous from '../images/hazardous.png';
+import 좋음 from '../images/good.png';
+import 보통 from '../images/moderate.png';
+import 조금_나쁨 from '../images/little_unhealthy.png';
+import 나쁨 from '../images/unhealthy.png';
+import 매우_나쁨 from '../images/unhealthy.png';
+import 위험지역 from '../images/hazardous.png';
 
 // select emoji image
 function selectEmoji(aqi){
-    if(aqi<=50){ return good; }
-    else if (aqi<=100){ return moderate; } 
-    else if (aqi<=150){ return little_unhealthy; } 
-    else if (aqi<=200){ return unhealthy; }
-    else if (aqi<=300){ return very_unhealthy; } 
-    else { return hazardous; }
+    if(aqi<=50){ return 좋음; }
+    else if (aqi<=100){ return 보통; } 
+    else if (aqi<=150){ return 조금_나쁨; } 
+    else if (aqi<=200){ return 나쁨; }
+    else if (aqi<=300){ return 매우_나쁨; } 
+    else { return 위험지역; }
 }
 
 // air description 
 function evaluateAir(aqi){
-    if(aqi<=50){ return 'Good'; } 
-    else if (aqi<=100){ return 'Moderate'; } 
-    else if (aqi<=150){ return 'Little Unhealthy'; } 
-    else if (aqi<=200){ return 'Unhealthy'; } 
-    else if (aqi<=300){ return 'Very Unhealthy'; } 
-    else { return 'Hazardous'; }
+    if(aqi<=50){ return '좋음'; } 
+    else if (aqi<=100){ return '보통'; } 
+    else if (aqi<=150){ return '조금 나쁨'; }  //대기질 기준을 우리나라로 맞출지 대화필요.
+    else if (aqi<=200){ return '나쁨'; } 
+    else if (aqi<=300){ return '매우 나쁨'; } 
+    else { return '위험지역'; }
 }
 
 // air implications 
 function implications(aqi){
     if(aqi<=50){
-        return 'Air quality is considered satisfactory, and air pollution poses little or no risk';
+        return '공기의 질이 만족스럽고 대기 오염의 위험도는 거의/전혀 없습니다.';
     } else if (aqi<=100){
-        return 'Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.';
+        return '공기의 질은 보통입니다. 그러나 일부 오염 물질의 경우 공기 오염에 비정상적으로 민감한 소수의 사람들에게는 건강 문제를 일으킬 수 있습니다.';
     } else if (aqi<=150){
-        return 'Members of sensitive groups may experience health effects. The general public is not likely to be affected.';
+        return '민감한 그룹의 구성원에게 건강에 영향을 줄 수 있습니다. 일반 대중은 큰 영향을 받지 않을 것입니다.';
     } else if (aqi<=200){
-        return 'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects';
+        return '모든 사람들의 건강에 영향을 미칠 수 있습니다. 민감한 그룹의 구성원은 더 심각한 건강상의 피해가 예상 됩니다';
     } else if (aqi<=300){
-        return 'Health warnings of emergency conditions. The entire population is more likely to be affected.';
+        return '건강에 대한 응급 상황 경고. 전체 인구가 심각한 건강상의 피해를 얻을 것으로 예상됩니다.';
     } else {
-        return 'Health alert: everyone may experience more serious health effects';
+        return '건강 경고 : 모든 사람이 더 심각한 건강상의 피해를 경험할 것입니다.';
     }
 }
 
@@ -64,9 +64,9 @@ class WeatherDetail extends Component {
 
         return (
             <div className='col-9 description'>
-                {cityName} is <span className='info'>{evaluateAir(aqi)}</span> now! <br/> <br/>
+                {cityName} 은 지금 <span className='info'>{evaluateAir(aqi)}</span> 단계입니다. <br/> <br/>
                 {implications(aqi)} <br/><br/>
-                want more information <i class="fas fa-angle-double-right"></i> <a href={url} target='_blank'>{url}</a>
+                더 자세한 정보를 원하신다면 <i class="fas fa-angle-double-right"></i> <a href={url} target='_blank'>{url}</a>
             </div>
         );
     }
@@ -75,8 +75,8 @@ class WeatherDetail extends Component {
         if(!this.props.selected){
             return (
                 <div className='aqiInfo'>
-                    <br/> There is NO city selected now <br/>
-                    Please click city name if you want more information <br/><br/>
+                    <br/> 아직 선택된 도시가 없습니다. <br/>
+                    미세먼지 정보가 알고 싶은 도시를 검색해주세요. <br/><br/>
                     <i class="fas fa-arrow-down fa-lg"/> <i class="fas fa-arrow-down fa-lg"/> <i class="fas fa-arrow-down fa-lg"/> <br/>
                 </div>
             );

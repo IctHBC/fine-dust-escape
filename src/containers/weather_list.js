@@ -56,19 +56,19 @@ class WeatherList extends Component {
         console.log('weatherData', this.props.weather);
         return (
             <div className='weather-list'>
-                if you want to clear table, click this &nbsp; <i class="fas fa-angle-double-right"></i> &nbsp; &nbsp;
+                미세먼지 데이터를 초기화 하고 싶으시면 클릭해주세요. &nbsp; <i class="fas fa-angle-double-right"></i> &nbsp; &nbsp;
                 <button type='button' 
                     className='btn btn-light'
                     onClick={() => this.handleClick()}>
-                    clear table
+                    테이블 초기화
                 </button>
                 <br/><br/>
                 <table className='table table-hover'>
                     <thead>
                         <tr>
-                            <th>cityName</th>
-                            <th>aqi</th>
-                            <th>State</th>
+                            <th>도시 이름</th>
+                            <th>aqi 지수</th>
+                            <th>상태</th>
                         </tr>
                     </thead>
                     <tbody>

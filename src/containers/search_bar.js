@@ -33,7 +33,7 @@ class SearchBar extends Component {
                     <div className='input-group-append'>
                         <button className='btn btn-primary' type='button'>
                             <i className='fa fa-spinner fa-spin' />
-                            <span className='searchBtn'>Search</span>
+                            <span className='searchBtn'>검색</span>
                         </button>
                     </div>
                 </div>

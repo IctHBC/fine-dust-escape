@@ -10,7 +10,7 @@ class ErrorMessage extends Component{
             return (
                 <div className='alert alert-danger' role='alert'>
                     {this.props.error}
-                    Make sure enter the right city <br/>
+                    도시의 명칭을 정확하게 입력해주십시오.(영어로) <br/>
                 </div>
             );
         } 

@@ -39,8 +39,8 @@ class ForecastWeather extends Component {
         return (
             <div className='forecast'>
                 <br/>
-                <h4> today's weather in {cityName} : {c} &#x2103; </h4> 
-                It is &nbsp; <span className='info'> {w.weather[0].description}</span> &nbsp; now! <br/>
+                <h4> {cityName}의 오늘의 날씨 : {c} &#x2103; </h4> 
+                지금 &nbsp; <span className='info'> {w.weather[0].description}</span> &nbsp;인 상황입니다. <br/>
             </div>
         );
     }
@@ -86,7 +86,7 @@ class ForecastWeather extends Component {
                    <button type='button' 
                         className='btn btn-light'
                         onClick={() => this.handleClick()}>
-                        show weather chart
+                        날씨 차트 보기
                     </button>
                    {this.renderChart()}
                    <br/>
@@ -100,7 +100,7 @@ class ForecastWeather extends Component {
                     <button type='button' 
                         className='btn btn-light'
                         onClick={() => this.handleClick()}>
-                        show weather chart
+                        날씨 차트 보기
                     </button>
                     <br/>
                 </div>
