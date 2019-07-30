@@ -40,27 +40,27 @@ class InfoTable extends Component {
                         <tr bgcolor='Gold'>
                             <td>51-100</td>
                             <td>Moderate(보통)</td>
-                            <td>천식과 같은 호흡기 질환이 있는 사람들은 장기간의 야외 활동을 피해야합니다.</td>
+                            <td>환자군에게 만성 노출시 경미한 영향이 유발될 수 있는 수준</td>
                         </tr>
                         <tr bgcolor='Coral'>
                             <td>101-150</td>
                             <td>Little Unhealthy(조금 나쁨)</td>
-                            <td>천식과 같은 호흡기 질환이 있는 사람들은 장기간의 야외 활동을 피해야합니다.</td>
+                            <td>환자군 및 민감군에게 유해한 영향이 유발될 수 있는 수준</td>
                         </tr>
                         <tr bgcolor='Crimson' className='whiteTable'>
                             <td>151-200</td>
                             <td>Unhealthy(나쁨)</td>
-                            <td>천식과 같은 호흡기 질환이있는 사람들은 장시간의 야외 활동을 피해야합니다. 특히 아이들은 장기간의 야외 활동을 제한해야합니다.</td>
+                            <td>환자군 및 민감군(어린이, 노약자 등)에게 유해한 영향 유발, 일반인도 건강상 불쾌감을 경험할 수 있는 수준</td>
                         </tr>
                         <tr bgcolor='DarkMagenta' className='whiteTable'>
                             <td>201-300</td>
                             <td>Very Unhealthy(매우 나쁨)</td>
-                            <td>천식과 같은 호흡기 질환이있는 사람들은 모든 실외 운동을 피해야합니다. 특히 아이들은 야외 활동을 제한해야합니다.</td>
+                            <td>환자군 및 민감군에게 급성 노출시 심각한 영향 유발, 일반인도 약한 영향이 유발될 수 있는 수준</td>
                         </tr>
                         <tr bgcolor='DarkRed' className='whiteTable'>
                             <td>300+</td>
                             <td>Hazardous(위험지역)</td>
-                            <td>모든 사람이 모든 야외 활동을 피해야합니다.</td>
+                            <td>환자군 및 민감군에게 응급 조치가 발생되거나, 일반인에게 유해한 영향이 유발될 수 있는 수준</td>
                         </tr>
                     </tbody>
                 </table>

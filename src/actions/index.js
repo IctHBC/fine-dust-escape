@@ -25,7 +25,7 @@ export function selectCity(city){
 // weather forecast api 
 
 const ROOT_FORECAST_URL = 'http://api.openweathermap.org/data/2.5/forecast'
-const FORECAST_KEY = '853c909f0f8639d63344ec1b9f73c12a';
+const FORECAST_KEY = '6c81f1f9027dac214c8c62acb5ca5b83';
 
 export const FETCH_FORECAST = 'FETCH_FORECAST';
 

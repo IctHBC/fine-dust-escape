@@ -31,8 +31,7 @@ class SearchBar extends Component {
                         value={this.state.term}
                     />
                     <div className='input-group-append'>
-                        <button className='btn btn-primary' type='button'>
-                            <i className='fa fa-spinner fa-spin' />
+                    <button className='btn btn-primary' id="button1" onclick="button1_click();">
                             <span className='searchBtn'>검색</span>
                         </button>
                     </div>
