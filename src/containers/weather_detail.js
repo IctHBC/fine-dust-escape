@@ -23,7 +23,7 @@ function selectEmoji(aqi){
 function evaluateAir(aqi){
     if(aqi<=50){ return '좋음'; } 
     else if (aqi<=100){ return '보통'; } 
-    else if (aqi<=150){ return '조금 나쁨'; }  //대기질 기준을 우리나라로 맞출지 대화필요.
+    else if (aqi<=150){ return '조금 나쁨'; } 
     else if (aqi<=200){ return '나쁨'; } 
     else if (aqi<=300){ return '매우 나쁨'; } 
     else { return '위험지역'; }
@@ -75,9 +75,8 @@ class WeatherDetail extends Component {
         if(!this.props.selected){
             return (
                 <div className='aqiInfo'>
-                    <br/> 아직 선택된 도시가 없습니다. <br/>
-                    미세먼지 정보가 알고 싶은 도시를 검색해주세요. <br/><br/>
-                    <i class="fas fa-arrow-down fa-lg"/> <i class="fas fa-arrow-down fa-lg"/> <i class="fas fa-arrow-down fa-lg"/> <br/>
+                    <br/>미세먼지 정보가 알고 싶은 도시를 검색해주세요.<br/>
+                     <br/>검색 후 나온 결과를 클릭하면 날씨 정보도 확인할 수 있습니다.<br/>
                 </div>
             );
         }

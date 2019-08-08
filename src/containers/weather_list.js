@@ -56,7 +56,7 @@ class WeatherList extends Component {
         console.log('weatherData', this.props.weather);
         return (
             <div className='weather-list'>
-                미세먼지 데이터를 초기화 하고 싶으시면 클릭해주세요. &nbsp; <i class="fas fa-angle-double-right"></i> &nbsp; &nbsp;
+                미세먼지 데이터를 초기화 하고 싶으시면 클릭해주세요. &nbsp; <i class="fas fa-arrow-right"></i> &nbsp; &nbsp;
                 <button type='button' 
                     className='btn btn-light'
                     onClick={() => this.handleClick()}>

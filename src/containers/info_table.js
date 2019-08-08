@@ -77,7 +77,7 @@ class InfoTable extends Component {
                     <button type='button' 
                         className='btn btn-light'
                         onClick={() => this.handleClick()}>
-                    미세먼지 기준표
+                    전국 대기질 기준표<i class="fas fa-mouse-pointer fa-sm"></i>
                     </button>
                     <br/>
                     <br/>
@@ -90,7 +90,7 @@ class InfoTable extends Component {
                     <button type='button' 
                         className='btn btn-light'
                         onClick={() => this.handleClick()}>
-                        미세먼지 기준표
+                        전국 대기질 기준표<i class="fas fa-mouse-pointer fa-sm"></i>
                     </button>
                 </div>
             );
